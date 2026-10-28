@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Trekking & Camping</title>
+
+    <style>
+        /* Basic Styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f2;
+            color: #26352b;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #173f35;
+            color: white;
+            padding: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav h2 {
+            margin: 0;
+            color: #c5e1a5;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        nav a:hover {
+            color: #c5e1a5;
+        }
+
+        /* Hero Banner */
+        .hero {
+            height: 400px;
+            background:
+                linear-gradient(rgba(0,0,0,0.4),
+                rgba(0,0,0,0.6)),
+                url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 19px;
+        }
+
+        .hero button {
+            background-color: #c5e1a5;
+            color: #173f35;
+            padding: 13px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* General Sections */
+        .container {
+            padding: 35px 6%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            color: #173f35;
+            font-size: 30px;
+        }
+
+        /* Trekking Route Cards */
+        .routes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .route-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px #00000015;
+        }
+
+        .route-image {
+            height: 220px;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Image Overlay */
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            color: white;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+        }
+
+        .overlay h3 {
+            margin-bottom: 5px;
+        }
+
+        .route-details {
+            padding: 20px;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .easy {
+            background: #d9f7be;
+            color: #237804;
+        }
+
+        .medium {
+            background: #fff1b8;
+            color: #ad6800;
+        }
+
+        .hard {
+            background: #ffccc7;
+            color: #a8071a;
+        }
+
+        .price {
+            font-size: 23px;
+            font-weight: bold;
+            color: #173f35;
+        }
+
+        .route-details button,
+        .camp-card button {
+            background: #26734d;
+            color: white;
+            border: none;
+            padding: 11px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .route-details button:hover,
+        .camp-card button:hover {
+            background: #173f35;
+        }
+
+        /* Camping Section */
+        .camping {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .camp-card {
+            background: white;
+            border-radius: 10px;
+            padding: 22px;
+            border-left: 5px solid #26734d;
+            box-shadow: 0 3px 10px #00000010;
+        }
+
+        .camp-card h3 {
+            color: #26734d;
+        }
+
+        /* Information Panels */
+        .info-panels {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .info {
+            padding: 22px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 3px 10px #00000010;
+        }
+
+        .info h3 {
+            color: #26734d;
+        }
+
+        .info ul {
+            padding-left: 20px;
+            line-height: 2;
+        }
+
+        .safety {
+            background: #fff3e0;
+            border-left: 5px solid #f39c12;
+        }
+
+        .equipment {
+            background: #e8f5e9;
+            border-left: 5px solid #2e7d32;
+        }
+
+        .schedule {
+            background: #e3f2fd;
+            border-left: 5px solid #1976d2;
+        }
+
+        /* Price Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #173f35;
+            color: white;
+        }
+
+        tr:hover {
+            background: #f0f7f0;
+        }
+
+        /* Footer */
+        footer {
+            background: #173f35;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .routes,
+            .info-panels {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .routes,
+            .camping,
+            .info-panels {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 25px 15px;
+            }
+
+            table {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <h2>🌲 TrailBlazers</h2>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#routes">Trekking</a>
+            <a href="#camping">Camping</a>
+            <a href="#equipment">Equipment</a>
+            <a href="#prices">Packages</a>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero" id="home">
+        <h1>Explore the Great Outdoors</h1>
+        <p>Discover mountains, explore trails, and enjoy unforgettable camping trips.</p>
+        <button onclick="location.href='#routes'">
+            Explore Adventures
+        </button>
+    </section>
+
+    <!-- Trekking Routes -->
+    <section class="container" id="routes">
+        <div class="section-title">
+            <h2>Popular Trekking Routes</h2>
+            <p>Choose an adventure that matches your experience.</p>
+        </div>
+
+        <div class="routes">
+
+            <!-- Route 1 -->
+            <div class="route-card">
+                <div class="route-image"
+                     style="background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=800&q=80');">
+                    <div class="overlay">
+                        <h3>Mountain Valley Trek</h3>
+                        <p>⛰️ Beautiful mountain views</p>
+                    </div>
+                </div>
+
+                <div class="route-details">
+                    <span class="difficulty easy">Easy</span>
+                    <p><b>Duration:</b> 1 Day</p>
+                    <p><b>Distance:</b> 5 km</p>
+                    <p>A beginner-friendly trail through scenic valleys and forests.</p>
+                    <p class="price">₹999</p>
+                    <button onclick="alert('Mountain Valley Trek selected!')">
+                        View Trip
+                    </button>
+                </div>
+            </div>
+
+            <!-- Route 2 -->
+            <div class="route-card">
+                <div class="route-image"
+                     style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80');">
+                    <div class="overlay">
+                        <h3>Highland Adventure</h3>
+                        <p>🏕️ Discover scenic trails</p>
+                    </div>
+                </div>
+
+                <div class="route-details">
+                    <span class="difficulty medium">Moderate</span>
+                    <p><b>Duration:</b> 2 Days</p>
+                    <p><b>Distance:</b> 12 km</p>
+                    <p>Explore mountain paths with panoramic views and overnight camping.</p>
+                    <p class="price">₹2,499</p>
+                    <button onclick="alert('Highland Adventure selected!')">
+                        View Trip
+                    </button>
+                </div>
+            </div>
+
+            <!-- Route 3 -->
+            <div class="route-card">
+                <div class="route-image"
+                     style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80');">
+                    <div class="overlay">
+                        <h3>Summit Challenge</h3>
+                        <p>🏔️ A challenging mountain route</p>
+                    </div>
+                </div>
+
+                <div class="route-details">
+                    <span class="difficulty hard">Difficult</span>
+                    <p><b>Duration:</b> 3 Days</p>
+                    <p><b>Distance:</b> 20 km</p>
+                    <p>A demanding high-altitude adventure for experienced trekkers.</p>
+                    <p class="price">₹4,999</p>
+                    <button onclick="alert('Summit Challenge selected!')">
+                        View Trip
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Camping Trips -->
+    <section class="container" id="camping">
+        <div class="section-title">
+            <h2>Camping Adventures</h2>
+            <p>Spend time outdoors and enjoy nature.</p>
+        </div>
+
+        <div class="camping">
+            <div class="camp-card">
+                <h3>🌌 Lakeside Camping</h3>
+                <p><b>Schedule:</b> Saturday - Sunday</p>
+                <p><b>Duration:</b> 2 Days / 1 Night</p>
+                <p>Includes a campsite, guided activities, and a group campfire where permitted.</p>
+                <p class="price">₹1,799 per person</p>
+                <button onclick="alert('Lakeside Camping selected!')">
+                    Choose Package
+                </button>
+            </div>
+
+            <div class="camp-card">
+                <h3>🌲 Forest Camping</h3>
+                <p><b>Schedule:</b> Friday - Sunday</p>
+                <p><b>Duration:</b> 3 Days / 2 Nights</p>
+                <p>Enjoy guided nature walks, tent camping, and outdoor exploration.</p>
+                <p class="price">₹2,999 per person</p>
+                <button onclick="alert('Forest Camping selected!')">
+                    Choose Package
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment, Safety and Schedule -->
+    <section class="container" id="equipment">
+        <div class="section-title">
+            <h2>Plan Your Adventure</h2>
+            <p>Prepare properly before heading outdoors.</p>
+        </div>
+
+        <div class="info-panels">
+
+            <!-- Equipment Checklist -->
+            <div class="info equipment">
+                <h3>🎒 Equipment Checklist</h3>
+                <ul>
+                    <li><input type="checkbox"> Comfortable hiking shoes</li>
+                    <li><input type="checkbox"> Water bottle</li>
+                    <li><input type="checkbox"> First-aid kit</li>
+                    <li><input type="checkbox"> Backpack</li>
+                    <li><input type="checkbox"> Weather-appropriate clothes</li>
+                    <li><input type="checkbox"> Torch and extra batteries</li>
+                    <li><input type="checkbox"> Tent and sleeping bag</li>
+                    <li><input type="checkbox"> Food and snacks</li>
+                </ul>
+            </div>
+
+            <!-- Safety Guidelines -->
+            <div class="info safety">
+                <h3>⚠️ Safety Guidelines</h3>
+                <ul>
+                    <li>Follow your guide's instructions.</li>
+                    <li>Check weather conditions before departure.</li>
+                    <li>Carry sufficient drinking water.</li>
+                    <li>Stay with your trekking group.</li>
+                    <li>Follow marked trails.</li>
+                    <li>Keep emergency contacts available.</li>
+                    <li>Inform someone about your route.</li>
+                    <li>Follow local park and campsite rules.</li>
+                </ul>
+            </div>
+
+            <!-- Trip Schedule -->
+            <div class="info schedule">
+                <h3>🗓️ Sample Trip Schedule</h3>
+                <ul>
+                    <li><b>6:00 AM:</b> Meet at starting point</li>
+                    <li><b>7:00 AM:</b> Safety briefing</li>
+                    <li><b>8:00 AM:</b> Trek begins</li>
+                    <li><b>12:00 PM:</b> Lunch break</li>
+                    <li><b>2:00 PM:</b> Reach campsite</li>
+                    <li><b>4:00 PM:</b> Set up camp</li>
+                    <li><b>7:00 PM:</b> Dinner and rest</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Package Prices -->
+    <section class="container" id="prices">
+        <div class="section-title">
+            <h2>Trekking Package Prices</h2>
+            <p>Choose a package for your next adventure.</p>
+        </div>
+
+        <table>
+            <tr>
+                <th>Package</th>
+                <th>Duration</th>
+                <th>Difficulty</th>
+                <th>Price</th>
+            </tr>
+
+            <tr>
+                <td>Mountain Valley Trek</td>
+                <td>1 Day</td>
+                <td>Easy</td>
+                <td>₹999</td>
+            </tr>
+
+            <tr>
+                <td>Highland Adventure</td>
+                <td>2 Days</td>
+                <td>Moderate</td>
+                <td>₹2,499</td>
+            </tr>
+
+            <tr>
+                <td>Summit Challenge</td>
+                <td>3 Days</td>
+                <td>Difficult</td>
+                <td>₹4,999</td>
+            </tr>
+
+            <tr>
+                <td>Lakeside Camping</td>
+                <td>2 Days</td>
+                <td>Easy</td>
+                <td>₹1,799</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h2>🌲 TrailBlazers</h2>
+        <p>Adventure awaits. Explore responsibly.</p>
+        <p>© 2026 TrailBlazers | Trekking & Camping</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Shopping Store</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #232f3e;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav h2 {
+            margin: 0;
+            color: orange;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        nav a:hover {
+            color: orange;
+        }
+
+        /* Search Box */
+        .search {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        /* Promotional Banner */
+        .banner {
+            background-color: #ffcc66;
+            text-align: center;
+            padding: 35px 15px;
+        }
+
+        .banner h1 {
+            color: #232f3e;
+        }
+
+        .banner p {
+            font-size: 18px;
+        }
+
+        /* Categories */
+        .categories {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .categories button {
+            padding: 10px 18px;
+            margin: 5px;
+            border: none;
+            background-color: #232f3e;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Product Grid */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Product Card */
+        .product {
+            background-color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px #ccc;
+        }
+
+        .product img {
+            width: 100%;
+            height: 160px;
+            object-fit: contain;
+        }
+
+        .product h3 {
+            color: #232f3e;
+        }
+
+        .price {
+            color: green;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .old-price {
+            color: gray;
+            text-decoration: line-through;
+        }
+
+        .discount {
+            color: red;
+            font-weight: bold;
+        }
+
+        .rating {
+            color: #e99b00;
+        }
+
+        .product p {
+            font-size: 14px;
+        }
+
+        .product button {
+            background-color: #ff9900;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .product button:hover {
+            background-color: #e68a00;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #232f3e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <h2>ShopEasy</h2>
+
+        <div>
+            <a href="#">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#products">Products</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <input class="search" type="text"
+               placeholder="Search products...">
+
+        <a href="#products">🛒 Cart</a>
+    </nav>
+
+    <!-- Promotional Banner -->
+    <div class="banner">
+        <h1>Big Shopping Sale!</h1>
+        <p>Get up to 50% OFF on selected products.</p>
+        <button onclick="location.href='#products'">
+            Shop Now
+        </button>
+    </div>
+
+    <!-- Product Categories -->
+    <div class="categories" id="categories">
+        <h2>Shop by Category</h2>
+
+        <button>Electronics</button>
+        <button>Fashion</button>
+        <button>Accessories</button>
+        <button>Home</button>
+    </div>
+
+    <!-- Products -->
+    <h2 style="text-align:center;">Featured Products</h2>
+
+    <div class="products" id="products">
+
+        <!-- Product 1 -->
+        <div class="product">
+            <img
+                src="https://placehold.co/250x180?text=Headphones"
+                alt="Headphones">
+
+            <h3>Wireless Headphones</h3>
+            <p>Category: Electronics</p>
+            <p>Enjoy music with clear sound and wireless freedom.</p>
+            <p class="rating">★ ★ ★ ★ ☆ (4.0)</p>
+
+            <p class="price">₹1,499</p>
+            <p>
+                <span class="old-price">₹2,999</span>
+                <span class="discount"> 50% OFF</span>
+            </p>
+
+            <button onclick="alert('Added to cart!')">
+                Add to Cart
+            </button>
+            <button onclick="alert('Buy Now selected!')">
+                Buy Now
+            </button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product">
+            <img
+                src="https://placehold.co/250x180?text=Smart+Watch"
+                alt="Smart Watch">
+
+            <h3>Smart Watch</h3>
+            <p>Category: Accessories</p>
+            <p>Track your daily activity with a stylish smartwatch.</p>
+            <p class="rating">★ ★ ★ ★ ☆ (4.2)</p>
+
+            <p class="price">₹1,999</p>
+            <p>
+                <span class="old-price">₹3,999</span>
+                <span class="discount"> 50% OFF</span>
+            </p>
+
+            <button onclick="alert('Added to cart!')">
+                Add to Cart
+            </button>
+            <button onclick="alert('Buy Now selected!')">
+                Buy Now
+            </button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product">
+            <img
+                src="https://placehold.co/250x180?text=Shoes"
+                alt="Sports Shoes">
+
+            <h3>Sports Shoes</h3>
+            <p>Category: Fashion</p>
+            <p>Comfortable shoes for walking and everyday activities.</p>
+            <p class="rating">★ ★ ★ ★ ★ (4.5)</p>
+
+            <p class="price">₹1,299</p>
+            <p>
+                <span class="old-price">₹2,000</span>
+                <span class="discount"> 35% OFF</span>
+            </p>
+
+            <button onclick="alert('Added to cart!')">
+                Add to Cart
+            </button>
+            <button onclick="alert('Buy Now selected!')">
+                Buy Now
+            </button>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product">
+            <img
+                src="https://placehold.co/250x180?text=Backpack"
+                alt="Backpack">
+
+            <h3>Travel Backpack</h3>
+            <p>Category: Fashion</p>
+            <p>A spacious backpack for college and travel.</p>
+            <p class="rating">★ ★ ★ ★ ☆ (4.1)</p>
+
+            <p class="price">₹899</p>
+            <p>
+                <span class="old-price">₹1,499</span>
+                <span class="discount"> 40% OFF</span>
+            </p>
+
+            <button onclick="alert('Added to cart!')">
+                Add to Cart
+            </button>
+            <button onclick="alert('Buy Now selected!')">
+                Buy Now
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <h3>ShopEasy</h3>
+        <p>Your simple online shopping destination.</p>
+        <p>© 2026 ShopEasy. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

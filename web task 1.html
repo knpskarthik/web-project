@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f1f5f9;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 200px;
+            height: 100vh;
+            background-color: #1e293b;
+            color: white;
+            position: fixed;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            color: #38bdf8;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background-color: #2563eb;
+        }
+
+        /* Main content */
+        .main {
+            margin-left: 250px;
+            padding: 25px;
+        }
+
+        /* Cards */
+        .cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            width: 180px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px #ccc;
+        }
+
+        .card h3 {
+            color: #64748b;
+        }
+
+        .card h2 {
+            color: #2563eb;
+        }
+
+        /* Sections */
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #dbeafe;
+        }
+
+        /* Attendance progress bars */
+        .progress {
+            background-color: #ddd;
+            height: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .bar {
+            background-color: #22c55e;
+            height: 15px;
+            border-radius: 10px;
+        }
+
+        /* Announcements */
+        .notice {
+            background-color: #eff6ff;
+            padding: 12px;
+            margin-top: 10px;
+            border-left: 4px solid #2563eb;
+        }
+
+        /* Mobile view */
+        @media (max-width: 700px) {
+            .sidebar {
+                position: relative;
+                width: auto;
+                height: auto;
+            }
+
+            .main {
+                margin-left: 0;
+                padding: 15px;
+            }
+
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>EduPortal</h2>
+
+        <a href="#home">Dashboard</a>
+        <a href="#student">Student Details</a>
+        <a href="#results">Semester Results</a>
+        <a href="#attendance">Attendance</a>
+        <a href="#subjects">Subjects</a>
+        <a href="#exams">Exam Schedule</a>
+        <a href="#announcements">Announcements</a>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div class="main" id="home">
+
+        <h1>Student Dashboard</h1>
+        <p>Welcome to your academic dashboard!</p>
+
+        <!-- Student Details -->
+        <div class="section" id="student">
+            <h2>Student Details</h2>
+
+            <p><b>Name:</b> Karthik</p>
+            <p><b>Roll Number:</b> 24BT101</p>
+            <p><b>Course:</b> B.Tech Computer Science</p>
+            <p><b>Semester:</b> 1st Semester</p>
+            <p><b>College:</b> NRI College</p>
+        </div>
+
+        <!-- Summary Cards -->
+        <h2>Academic Overview</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3>CGPA</h3>
+                <h2>8.6</h2>
+            </div>
+
+            <div class="card">
+                <h3>Attendance</h3>
+                <h2>85%</h2>
+            </div>
+
+            <div class="card">
+                <h3>Subjects</h3>
+                <h2>6</h2>
+            </div>
+
+            <div class="card">
+                <h3>Upcoming Exams</h3>
+                <h2>3</h2>
+            </div>
+        </div>
+
+        <!-- Semester Results -->
+        <div class="section" id="results">
+            <h2>Semester Results</h2>
+
+            <table>
+                <tr>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                    <th>Grade</th>
+                </tr>
+
+                <tr>
+                    <td>Mathematics</td>
+                    <td>88</td>
+                    <td>A</td>
+                </tr>
+
+                <tr>
+                    <td>Physics</td>
+                    <td>82</td>
+                    <td>A</td>
+                </tr>
+
+                <tr>
+                    <td>Python Programming</td>
+                    <td>94</td>
+                    <td>A+</td>
+                </tr>
+
+                <tr>
+                    <td>English</td>
+                    <td>79</td>
+                    <td>B+</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Attendance -->
+        <div class="section" id="attendance">
+            <h2>Attendance Percentage</h2>
+
+            <p>Mathematics - 90%</p>
+            <div class="progress">
+                <div class="bar" style="width: 90%;"></div>
+            </div>
+
+            <p>Physics - 80%</p>
+            <div class="progress">
+                <div class="bar" style="width: 80%;"></div>
+            </div>
+
+            <p>Python Programming - 95%</p>
+            <div class="progress">
+                <div class="bar" style="width: 95%;"></div>
+            </div>
+
+            <p>English - 75%</p>
+            <div class="progress">
+                <div class="bar" style="width: 75%;"></div>
+            </div>
+        </div>
+
+        <!-- Subject Information -->
+        <div class="section" id="subjects">
+            <h2>Subject Information</h2>
+
+            <table>
+                <tr>
+                    <th>Subject Code</th>
+                    <th>Subject Name</th>
+                    <th>Credits</th>
+                </tr>
+
+                <tr>
+                    <td>CS101</td>
+                    <td>Python Programming</td>
+                    <td>4</td>
+                </tr>
+
+                <tr>
+                    <td>MA101</td>
+                    <td>Mathematics</td>
+                    <td>4</td>
+                </tr>
+
+                <tr>
+                    <td>PH101</td>
+                    <td>Engineering Physics</td>
+                    <td>3</td>
+                </tr>
+
+                <tr>
+                    <td>EN101</td>
+                    <td>English</td>
+                    <td>2</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Examination Schedule -->
+        <div class="section" id="exams">
+            <h2>Examination Schedule</h2>
+
+            <table>
+                <tr>
+                    <th>Subject</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+
+                <tr>
+                    <td>Mathematics</td>
+                    <td>10 November 2026</td>
+                    <td>9:30 AM</td>
+                </tr>
+
+                <tr>
+                    <td>Physics</td>
+                    <td>13 November 2026</td>
+                    <td>9:30 AM</td>
+                </tr>
+
+                <tr>
+                    <td>Python Programming</td>
+                    <td>16 November 2026</td>
+                    <td>9:30 AM</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Announcements -->
+        <div class="section" id="announcements">
+            <h2>Announcements</h2>
+
+            <div class="notice">
+                <b>Examination Notice</b>
+                <p>Check your examination schedule and prepare well.</p>
+            </div>
+
+            <div class="notice">
+                <b>Assignment Submission</b>
+                <p>Submit your pending assignments to your faculty.</p>
+            </div>
+
+            <div class="notice">
+                <b>Attendance Reminder</b>
+                <p>Attend classes regularly and maintain good attendance.</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
